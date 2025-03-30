@@ -12,7 +12,7 @@ public class ParrierConfig extends MidnightConfig {
     @Comment(category = PARRY_OPTIONS, centered = true) public static String reParryComment;
     @Entry(category = PARRY_OPTIONS) public static boolean reParry = false;
     @Comment(category = PARRY_OPTIONS, centered = true) public static String backParryComment;
-    @Entry(category = PARRY_OPTIONS) public static boolean backParry = true;
+    @Entry(category = PARRY_OPTIONS) public static boolean backParry = false;
 
     @Entry(category = FREEZE_OPTIONS) public static int gameFreezeTicks = 20;
     @Comment(category = FREEZE_OPTIONS, centered = true) public static String gameFreezeRangeComment;
