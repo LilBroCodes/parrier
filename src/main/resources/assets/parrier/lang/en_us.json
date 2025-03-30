@@ -1,0 +1,21 @@
+{
+  "key.parrier.parry": "Parry",
+  "category.parrier.parrier": "Parrier",
+  "parrier.midnightconfig.category.parry_options": "Parry Options",
+  "parrier.midnightconfig.category.freeze_options": "Game Freeze Options",
+  "parrier.midnightconfig.parryRange": "Parry Range",
+  "parrier.midnightconfig.parryCooldown": "Parry Cooldown",
+  "parrier.midnightconfig.flashScreen": "Flash Screen",
+  "parrier.midnightconfig.freezeAnimations": "Freeze Animations",
+  "parrier.midnightconfig.freezeMovement": "Freeze Movement",
+  "parrier.midnightconfig.freezeAi": "Freeze Mob AI",
+  "parrier.midnightconfig.freezeBlocks": "Freeze Blocks (§cBUGGY!§r)",
+  "parrier.midnightconfig.gameFreezeTicks": "Game Freeze Time",
+  "parrier.midnightconfig.gameFreezeRange": "Game Freeze Range",
+  "parrier.midnightconfig.gameFreezeRangeComment": "§7The range in which players will be affected by the game freeze",
+  "parrier.midnightconfig.parryStrength": "Parry Strength",
+  "parrier.midnightconfig.reParry": "ReParry",
+  "parrier.midnightconfig.parryStrengthComment": "§7When you parry a projectile, it's velocity will be multiplied by this amount.",
+  "parrier.midnightconfig.reParryComment": "§7If enabled, projectiles will be reversed instead of hit where the player is looking.",
+  "parrier.midnightconfig.title": "Parrier"
+}

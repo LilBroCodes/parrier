@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "parrier",
+  "version": "${version}",
+  "name": "Parrier",
+  "description": "Backported & Modified fabric version of \"ULTRA-PARRY\" by Xavier",
+  "authors": [
+    "LilBroCodes",
+    "Xavier"
+  ],
+  "contact": {
+    "LilBroCodes": "lilbrocodes@gmail.com"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/parrier/icon.png",
+  "environment": "*",
+  "accessWidener": "parrier.accesswidener",
+  "entrypoints": {
+    "client": [
+      "org.lilbrocodes.parrier.client.ParrierClient"
+    ],
+    "main": [
+      "org.lilbrocodes.parrier.Parrier"
+    ]
+  },
+  "mixins": [
+    "parrier.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "midnightlib": "~${midnightlib_version}"
+  }
+}

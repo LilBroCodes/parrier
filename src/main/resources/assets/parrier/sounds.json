@@ -1,0 +1,9 @@
+{
+  "parry": {
+    "sounds": [
+      {
+        "name": "parrier:parry"
+      }
+    ]
+  }
+}
