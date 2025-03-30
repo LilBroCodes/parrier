@@ -1,4 +1,4 @@
-package org.lilbrocodes.parrier.mixin;
+package org.lilbrocodes.parrier.mixin.freeze;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

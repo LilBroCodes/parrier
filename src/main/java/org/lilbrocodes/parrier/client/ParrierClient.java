@@ -53,6 +53,7 @@ public class ParrierClient implements ClientModInitializer {
         });
 
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> onHudRender(drawContext));
+
     }
 
     public static void onHudRender(DrawContext context) {

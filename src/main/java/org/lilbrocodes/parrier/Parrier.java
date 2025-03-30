@@ -24,7 +24,6 @@ public class Parrier implements ModInitializer {
     public static final Identifier PARRY_C2S_ID = Identifier.of(MOD_ID, "parry_c2s");
     public static final Identifier FREEZE_S2C_ID = Identifier.of(MOD_ID, "freeze_s2c");
     public static final Map<UUID, Integer> parryTicksList = new HashMap<>();
-    public static final Map<UUID, Integer> parryCooldowns = new HashMap<>();
     public static final Map<ParryVelocityHandler.ParryVelocityContext, Integer> queuedParries = new HashMap<>();
 
     private void fixMap(Map<UUID, Integer> map, MinecraftServer server) {
@@ -42,15 +41,14 @@ public class Parrier implements ModInitializer {
         MidnightConfig.init(MOD_ID, ParrierConfig.class);
 
         ServerTickEvents.END_SERVER_TICK.register(server -> {
-            fixMap(parryCooldowns, server);
             fixMap(parryTicksList, server);
         });
 
         ServerTickEvents.START_WORLD_TICK.register(world -> {
             for (ServerPlayerEntity player : world.getPlayers()) {
-                if (parryTicksList.get(player.getUuid()) > 0 && parryCooldowns.get(player.getUuid()) == 0) {
+                if (parryTicksList.get(player.getUuid()) > 0 ) {
                     Box box = player.getBoundingBox().expand(ParrierConfig.parryRange);
-                    List<Entity> projectiles = world.getOtherEntities(player, box, new ProjectilePredicate());
+                    List<Entity> projectiles = world.getOtherEntities(player, box, entity -> ProjectilePredicate.test(entity, player.getUuid()));
 
                     if (!projectiles.isEmpty()) {
                         world.playSoundFromEntity(null, player, Sounds.PARRY, SoundCategory.PLAYERS, 2.0f, 1.0f);
@@ -65,8 +63,7 @@ public class Parrier implements ModInitializer {
                         queuedParries.put(new ParryVelocityHandler.ParryVelocityContext(player, projectile), ParrierConfig.gameFreezeTicks);
                         projectile.discard();
                     }
-                    parryCooldowns.put(player.getUuid(), ParrierConfig.parryCooldown);
-                } else if (parryCooldowns.get(player.getUuid()) > 0) parryCooldowns.put(player.getUuid(), parryCooldowns.get(player.getUuid()) - 1);
+                }
             }
             List<ParryVelocityHandler.ParryVelocityContext> lazyRemove = new ArrayList<>();
             for (Map.Entry<ParryVelocityHandler.ParryVelocityContext, Integer> entry : queuedParries.entrySet()) {

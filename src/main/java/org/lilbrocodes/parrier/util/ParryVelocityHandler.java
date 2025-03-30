@@ -14,7 +14,7 @@ public class ParryVelocityHandler {
         Vec3d position = context.player.getPos().add(0, 1, 0);
         Vec3d velocity = context.projectile.getVelocity();
 
-        if (ParrierConfig.reParry && context.projectile.getOwner() != null && context.projectile.getOwner() != context.player) {
+        if (ParrierConfig.backParry && context.projectile.getOwner() != null && context.projectile.getOwner() != context.player) {
             Vec3d ownerPos = context.projectile.getOwner().getEyePos();
             Vec3d directionToOwner = ownerPos.subtract(context.projectile.getPos()).normalize();
             velocity = directionToOwner.multiply(velocity.length()).normalize();
@@ -27,6 +27,7 @@ public class ParryVelocityHandler {
 
         multiplyPower(fireball, ParrierConfig.parryStrength);
 
+        fireball.addCommandTag(context.player.getUuid().toString());
         context.player.getWorld().spawnEntity(fireball);
     }
 
@@ -34,11 +35,5 @@ public class ParryVelocityHandler {
         fireball.powerX *= multiplier;
         fireball.powerY *= multiplier;
         fireball.powerZ *= multiplier;
-    }
-
-    public static void multiplyPower(SmallFireballEntity fireball, Vec3d multiplier) {
-        fireball.powerX *= multiplier.x;
-        fireball.powerY *= multiplier.y;
-        fireball.powerZ *= multiplier.z;
     }
 }

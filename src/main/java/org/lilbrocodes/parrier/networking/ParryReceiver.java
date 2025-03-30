@@ -5,6 +5,6 @@ import org.lilbrocodes.parrier.Parrier;
 
 public class ParryReceiver {
     public void handle(ServerPlayerEntity player) {
-        if(Parrier.parryCooldowns.get(player.getUuid()) == 0) Parrier.parryTicksList.put(player.getUuid(), 4);
+        Parrier.parryTicksList.put(player.getUuid(), 4);
     }
 }

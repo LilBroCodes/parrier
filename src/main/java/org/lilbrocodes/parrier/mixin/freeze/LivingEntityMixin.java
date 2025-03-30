@@ -1,6 +1,6 @@
-package org.lilbrocodes.parrier.mixin;
+package org.lilbrocodes.parrier.mixin.freeze;
 
-import net.minecraft.client.particle.Particle;
+import net.minecraft.entity.LivingEntity;
 import org.lilbrocodes.parrier.Parrier;
 import org.lilbrocodes.parrier.client.ParrierClient;
 import org.lilbrocodes.parrier.config.ParrierConfig;
@@ -10,14 +10,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Particle.class)
-public class ParticleMixin {
+@Mixin(LivingEntity.class)
+public class LivingEntityMixin {
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     public void tickMove(CallbackInfo ci) {
         if (Environment.isClient()) {
-            if (ParrierClient.particlesFrozen) ci.cancel();
+            if (ParrierClient.movementFrozen) ci.cancel();
         } else {
-            if (!Parrier.queuedParries.isEmpty() && ParrierConfig.freezeParticles) ci.cancel();
+            if (!Parrier.queuedParries.isEmpty() && ParrierConfig.freezeMovement) ci.cancel();
         }
     }
 }

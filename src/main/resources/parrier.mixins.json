@@ -4,16 +4,17 @@
   "package": "org.lilbrocodes.parrier.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "GoalMixin",
-    "LivingEntityMixin",
-    "ServerWorldMixin",
-    "WorldMixin"
+    "freeze.GoalMixin",
+    "freeze.LivingEntityMixin",
+    "freeze.ServerWorldMixin",
+    "freeze.WorldMixin"
   ],
   "client": [
-    "AnimatedParticleMixin",
-    "ParticleManagerMixin",
-    "ParticleMixin",
-    "SpriteAtlasTextureMixin"
+    "animation.HeldItemRendererMixin",
+    "freeze.AnimatedParticleMixin",
+    "freeze.ParticleManagerMixin",
+    "freeze.ParticleMixin",
+    "freeze.SpriteAtlasTextureMixin"
   ],
   "injectors": {
     "defaultRequire": 1
