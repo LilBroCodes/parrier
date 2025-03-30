@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
 import org.lilbrocodes.parrier.config.ParrierConfig;
 import org.lilbrocodes.parrier.networking.ParryPayload;
+import org.lilbrocodes.parrier.registries.Sounds;
 import org.lilbrocodes.parrier.util.NetworkUtil;
 import org.lilbrocodes.parrier.util.ParryVelocityHandler;
 import org.lilbrocodes.parrier.util.ProjectilePredicate;
