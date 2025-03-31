@@ -40,7 +40,7 @@ public class Parrier implements ModInitializer {
         ParryPayload.registerReceiver();
         MidnightConfig.init(MOD_ID, ParrierConfig.class);
 
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
+        ServerTickEvents.START_SERVER_TICK.register(server -> {
             fixMap(parryTicksList, server);
         });
 
